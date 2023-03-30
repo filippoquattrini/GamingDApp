@@ -1,9 +1,16 @@
 
 body {
-  background-image: url("/workspaces/GamingDApp/public/img/sfondo.jpg");
-  position: relative;
+  background-image: url(/img/sfondo.png);
+  background-size: absolute;
+  background-repeat: no-repeat;
+  background-position: top;
+
 }
 
 a {
   color: #00B7FF;
+}
+
+#g {
+  width: 100px;
 }
