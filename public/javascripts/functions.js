@@ -158,7 +158,7 @@ let contractAddress = "0xD7F8F226aCB2989e3A64054d8Ee0BCE5627CB53C"
     });
 }
     async function cartone()    {
-        myContract.methods.cartone()
+        myContract.methods.cartone().call({from: myAddress})
     }then(function (response) {
         console.log(response);
     });
