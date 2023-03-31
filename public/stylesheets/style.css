@@ -1,7 +1,7 @@
 
 body {
   /* background-image: url(/img/86500075-cfa1-11ed-8e80-e17ec7a0ad4c.gif); */
-  background-image: url(/img/sfondo.png);
+  background-color: #66f;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -16,14 +16,15 @@ a {
   width: 100px;
 }
 
-.column {
+ /* .colonna {
+  flex: 1;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
   width: 15%;
-  height: 30%;
-  display: inline-block;
-  background-color: #ccc;
-  margin-top: 6%;
-  margin-left: 2%;
-}
+  background-color: aquamarine;
+  display: ;
+}  */
 header {
   padding: 0%;
   width: max-content;
@@ -44,8 +45,52 @@ header {
   position: absolute;
 }
 
-section{
-  display: inline;
-  margin-top: 10px;
-  width: max-content;
+/* section{
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+.column {
+  float: left;
+  width: 18%;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+#pizze{
+  width: 50%;
+  height: 50%;
+}
+#bvendi{
+  font-size: larger;
+  display: block;
+  width: 350px;
+  height: 50Px;
+  padding: 5px;
+  background-color: #FF0080; 
+}
+
+h2{
+  color :#efb800;  
+
+}
+
+.button-img{
+  background: none;
+  height: 10em;
+  width: 10em;
 }
