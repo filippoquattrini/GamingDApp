@@ -142,10 +142,12 @@ let contractAddress = "0xD7F8F226aCB2989e3A64054d8Ee0BCE5627CB53C"
     async function acquista(){
         myContract.methods.acquista("cipolla").send({
             from: myAddress,
-            value: web3.utils.towei('0.001', 'ether')
+            value: web3.utils.toWei('0.001', 'ether')
         }).then(function (response) {
             console.log(response);
         });
+
+		await changeImage()
     }
 
     async function vendita(){
@@ -163,4 +165,22 @@ let contractAddress = "0xD7F8F226aCB2989e3A64054d8Ee0BCE5627CB53C"
         console.log(response);
     });
 
+	const img = document.getElementById('pizze');
+	let currentImgIdx = 1;
+	const images = [ 
+		'/img/New Piskel-4.png.png',
+		'/img/New Piskel-3.png.png',
+		'/img/New Piskel-2.png.png'
+	]; 
+	// Call changeImage() function on button click
+	function changeImage(){
+		if(currentImgIdx >= images.length){
+			currentImgIdx = 0;
+			// If current idx exceeds images array
+			// length, reset it to 0 again
+		}
+		img.src = images[currentImgIdx];
+		currentImgIdx++;
+		// Increment current image idx by 1
+	}
 

@@ -12,11 +12,11 @@
 </head>
 <body>
     <header>
-        <h1 style="font-style: oblique; color:greenyellow; font-family: 'Times New Roman', Times, serif 'Arial Narrow', Arial, sans-serif; text-align: center;">PAZZA PIZZA</h1>
+        <h1 style="font-style: oblique; color:	#ff0000; font-family: 'Times New Roman', Times, serif 'Arial Narrow', Arial, sans-serif; text-align: center;">PAZZA PIZZA</h1>
         <div class="bottonidinavigazione">
             <button  onclick="connectMetamask()">connect Metamask</button>
             <button  onclick="loadContract()">load the Smart Contract</button>
-            <button class="button-img" id="bottonecartone" id="bottonecartone" onclick="cartone()" <img class="img-responsive" src="/img/imgcartonte.png"></button>
+            <button id="bottonecartone"onclick="cartone()"><img class="img-responsive" src="/img/imgcartone.png" width="140%" height="140%px" ></button>
         </div>
       </header>
 
@@ -31,28 +31,58 @@
       <div class="row" style="margin-top: 5%;">
         <div class="column">
           <h2>COMUNE</h2>
-          <img id="pizze" src="/img/pizzamrb.png" alt="margherita">
+          <img class="imgpizze" id="pizze" src="/img/pizzam.png" alt="margherita">
+          <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
+          <button id="bvendi" onclick="vendita()">VENDI</button>
+
+          <img class="imgpizze" id="pizze" src="/img/diavola.png" alt="diavola">
+          <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
+          <button id="bvendi" onclick="vendita()">VENDI</button>
+
+          <img class="imgpizze" id="pizze" src="/img/cipolla .png" alt="cipolla">
+          <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
           <button id="bvendi" onclick="vendita()">VENDI</button>
         </div>
         
         <div class="column">
           <h2>RARA</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+          <img class="imgpizze" id="pizze" src="/img/wuirstell.png" alt="wuirstell">
+          <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
+          <button id="bvendi" onclick="vendita()">VENDI</button>
+
+          <img class="imgpizze" id="pizze" src="/img/capricciosa.png" alt="capricciosa">
+          <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
+          <button id="bvendi" onclick="vendita()">VENDI</button>
+          
+
         </div>
         
         <div class="column">
           <h2>EPICA</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+          <img class="imgpizze" id="pizze" src="/img/4formaggi.png" alt="4formaggi">
+          <button id="bvendi" onclick="vendita()">VENDI</button>
+          
         </div>
         
         <div class="column">
           <h2>LEGGENDARIA</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+          <img class="imgpizze" id="pizze" src="/img/Napoletana.png" alt="napoletana">
+          <button id="bvendi" onclick="vendita()">VENDI</button>
+          
+          <img class="imgpizze" id="pizze" src="/img/tartufo.png" alt="tartufo">
+          <button id="bvendi" onclick="vendita()">VENDI</button>
+          
         </div>
         
         <div class="column">
           <h2>ESOTICA</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+          <img class="imgpizze" id="pizze" src="/img/ananas.png" alt="ananas">
+          <button id="bvendi" onclick="vendita()">VENDI</button>
+          
+          <img class="imgpizze" id="pizze" src="/img/celeci.png" alt="vegana">
+          <button id="bvendi" onclick="vendita()">VENDI</button>
+          
+          
         </div>
       </div>
 
