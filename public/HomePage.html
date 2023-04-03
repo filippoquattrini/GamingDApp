@@ -31,25 +31,31 @@
       <div class="row" style="margin-top: 5%;">
         <div class="column">
           <h2>COMUNE</h2>
-          <img class="imgpizze" id="pizze" src="/img/pizzam.png" alt="margherita">
+          <h4>Margherita</h4>
+          <img class="imgpizze" id="margherita" src="/img/pizzam.png" alt="margherita">
           <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
           <button id="bvendi" onclick="vendita()">VENDI</button>
 
-          <img class="imgpizze" id="pizze" src="/img/diavola.png" alt="diavola">
-          <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
+          <h4>Diavola</h4>
+          <img class="imgpizze" id="diavola" src="/img/diavola.png" alt="diavola">
+          <button id="bvendi"   onclick="changeImage()">ACQUISTA</button>
           <button id="bvendi" onclick="vendita()">VENDI</button>
 
-          <img class="imgpizze" id="pizze" src="/img/cipolla .png" alt="cipolla">
+          <h4>Cipolla</h4>
+          <img class="imgpizze" id="cipolla" src="/img/cipolla .png" alt="cipolla">
           <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
           <button id="bvendi" onclick="vendita()">VENDI</button>
         </div>
         
         <div class="column">
           <h2>RARA</h2>
+
+          <h4>Würstel</h4>
           <img class="imgpizze" id="pizze" src="/img/wuirstell.png" alt="wuirstell">
           <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
           <button id="bvendi" onclick="vendita()">VENDI</button>
 
+          <h4>Capricciosa</h4>
           <img class="imgpizze" id="pizze" src="/img/capricciosa.png" alt="capricciosa">
           <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
           <button id="bvendi" onclick="vendita()">VENDI</button>
@@ -59,6 +65,7 @@
         
         <div class="column">
           <h2>EPICA</h2>
+          <h4>4 Formaggi</h4>
           <img class="imgpizze" id="pizze" src="/img/4formaggi.png" alt="4formaggi">
           <button id="bvendi" onclick="vendita()">VENDI</button>
           
@@ -66,9 +73,11 @@
         
         <div class="column">
           <h2>LEGGENDARIA</h2>
+          <h4>Napoletana</h4>
           <img class="imgpizze" id="pizze" src="/img/Napoletana.png" alt="napoletana">
           <button id="bvendi" onclick="vendita()">VENDI</button>
           
+          <h4>tartufo</h4>
           <img class="imgpizze" id="pizze" src="/img/tartufo.png" alt="tartufo">
           <button id="bvendi" onclick="vendita()">VENDI</button>
           
@@ -76,9 +85,11 @@
         
         <div class="column">
           <h2>ESOTICA</h2>
+          <h4>Ananas</h4>
           <img class="imgpizze" id="pizze" src="/img/ananas.png" alt="ananas">
           <button id="bvendi" onclick="vendita()">VENDI</button>
           
+          <h4>Senza glutine</h4>
           <img class="imgpizze" id="pizze" src="/img/celeci.png" alt="vegana">
           <button id="bvendi" onclick="vendita()">VENDI</button>
           

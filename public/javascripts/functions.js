@@ -3,6 +3,7 @@
 // web3 = new Web3(ethereum);
  let web3 = {};
  let myContract = {}
+ let currentImgIdx = 1;;
 
 
 async function connectMetamask() {
@@ -147,7 +148,7 @@ let contractAddress = "0xD7F8F226aCB2989e3A64054d8Ee0BCE5627CB53C"
             console.log(response);
         });
 
-		await changeImage()
+		// await changeImage()
     }
 
     async function vendita(){
@@ -165,22 +166,14 @@ let contractAddress = "0xD7F8F226aCB2989e3A64054d8Ee0BCE5627CB53C"
         console.log(response);
     });
 
-	const img = document.getElementById('pizze');
-	let currentImgIdx = 1;
-	const images = [ 
-		'/img/New Piskel-4.png.png',
-		'/img/New Piskel-3.png.png',
-		'/img/New Piskel-2.png.png'
-	]; 
-	// Call changeImage() function on button click
-	function changeImage(){
-		if(currentImgIdx >= images.length){
-			currentImgIdx = 0;
-			// If current idx exceeds images array
-			// length, reset it to 0 again
-		}
-		img.src = images[currentImgIdx];
-		currentImgIdx++;
-		// Increment current image idx by 1
-	}
+	// function changeImage() {
+	//    var image = document.getElementById("diavola");
+	//    if (image.src ==  "/img/diavola.png") {
+	// 	  image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1GyK6fiCHCRcizXh_dXsFBA5Idw7XayKizQ&usqp=CAU";
+	//    }
+	//    else {
+	// 	  image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1GyK6fiCHCRcizXh_dXsFBA5Idw7XayKizQ&usqp=CAU";
+	//    }
+
+	// }
 
