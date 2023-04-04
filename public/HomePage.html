@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home page</title>
+    <title>Pazza Pizza</title>
     <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="icon" href="/img/pizzam.png">
     <script type = "text/javascript" src="/javascripts/functions.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.3.5/dist/web3.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -14,9 +15,9 @@
     <header>
         <h1 style="font-style: oblique; color:	#ff0000; font-family: 'Times New Roman', Times, serif 'Arial Narrow', Arial, sans-serif; text-align: center;">PAZZA PIZZA</h1>
         <div class="bottonidinavigazione">
-            <button  onclick="connectMetamask()">connect Metamask</button>
+            <button style="background: none;"  onclick="connectMetamask()"><img src="/img/MetaMask_Fox.svg.png" width="100px" height="100px"></button>
             <button  onclick="loadContract()">load the Smart Contract</button>
-            <button id="bottonecartone"onclick="cartone()"><img class="img-responsive" src="/img/imgcartone.png" width="140%" height="140%px" ></button>
+            <button style="background: none;" id="bottonecartone"onclick="cartone()"><img class="img-responsive" src="/img/imgcartone.png" width="140%" height="140%px" ></button>
         </div>
       </header>
 
@@ -33,32 +34,35 @@
           <h2>COMUNE</h2>
           <h4>Margherita</h4>
           <img class="imgpizze" id="margherita" src="/img/pizzam.png" alt="margherita">
-          <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
+          <button id="bvendi"   onclick="acquista('margherita')">ACQUISTA</button>
           <button id="bvendi" onclick="vendita()">VENDI</button>
 
           <h4>Diavola</h4>
           <img class="imgpizze" id="diavola" src="/img/diavola.png" alt="diavola">
-          <button id="bvendi"   onclick="changeImage()">ACQUISTA</button>
+          <button id="bvendi"   onclick="acquista('diavola', '0.0015')">ACQUISTA</button>
           <button id="bvendi" onclick="vendita()">VENDI</button>
 
           <h4>Cipolla</h4>
-          <img class="imgpizze" id="cipolla" src="/img/cipolla .png" alt="cipolla">
-          <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
+          <img class="imgpizze" id="cipolla" src="/img/cipolla.png" alt="cipolla">
+          <button id="bvendi"   onclick="acquista('cipolla', '0.001')">ACQUISTA</button>
           <button id="bvendi" onclick="vendita()">VENDI</button>
         </div>
         
         <div class="column">
           <h2>RARA</h2>
 
-          <h4>Würstel</h4>
-          <img class="imgpizze" id="pizze" src="/img/wuirstell.png" alt="wuirstell">
-          <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
+          <h4>Capricciosa</h4>
+          <img class="imgpizze" id="pizze" src="/img/capricciosavuota.png" alt="capricciosa" style="background: none;">
+          <button id="bvendi"   onclick="acquista('capricciosa', '0.002')">ACQUISTA</button>
           <button id="bvendi" onclick="vendita()">VENDI</button>
 
-          <h4>Capricciosa</h4>
-          <img class="imgpizze" id="pizze" src="/img/capricciosa.png" alt="capricciosa">
-          <button id="bvendi"   onclick="acquista()">ACQUISTA</button>
+
+          <h4>Würstel</h4>
+          <img class="imgpizze" id="pizze" src="/img/wuirstell.png" alt="wuirstell">
+          <button id="bvendi"   onclick="acquista('Wurstel')">ACQUISTA</button>
           <button id="bvendi" onclick="vendita()">VENDI</button>
+
+          
           
 
         </div>
