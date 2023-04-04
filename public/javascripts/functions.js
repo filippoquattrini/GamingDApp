@@ -144,11 +144,11 @@ let contractAddress = "0xaf81D4efC34Ee3c22b68FB260C581E20756E7421"
 
     async function acquista(nome, value){
 		console.log(value)
-        myContract.methods.acquista(nome).send({
+       await myContract.methods.acquista(nome).send({
             from: myAddress,
             value: web3.utils.toWei(value, 'ether')
         }).then(function (response) {
-            console.log(response);
+            console.log("acquisto completato");
 	     	 changeImage(nome)
     		
         });
@@ -221,9 +221,7 @@ function changeImage(nome){
     currentImgIdx++;
     }
     img.src =  cipolla[currentImgIdx];
-    currentImgIdx++;ù
-	
-	//aumenta wuestel
+    currentImgIdx++;
   
 	const capricciosa= [ 
 		'/img/capricciosavuota.png',
@@ -242,7 +240,6 @@ function changeImage(nome){
     img.src =  capricciosa[currentImgIdx];
     currentImgIdx++;
 
-	//aumenta
 }
 
 
