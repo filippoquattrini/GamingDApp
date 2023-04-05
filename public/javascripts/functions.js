@@ -1,14 +1,14 @@
 
  let myAddress = "";
-// web3 = new Web3(ethereum);
  let web3 = {};
  let myContract = {}
  let currentImgIdx = 0;
  let a = 0;
+ 
+
 
 
 async function connectMetamask() {
-	currentImgIdx = 1;
     const {ethereum} = window;
     //console.log(Boolean(ethereum && ethereum.isMetaMask));
     // console.log(window.ethereum);
@@ -18,6 +18,7 @@ async function connectMetamask() {
     //     console.log(response);
     //     myAddress = response[0];
     // })
+	await loadContract()
 
     await web3.eth.getAccounts().then(function (response) {
         myAddress = response[0];
@@ -32,27 +33,7 @@ async function connectMetamask() {
 }
 
 async function loadContract(){
-    let abi =[
-		{
-			"inputs": [
-				{
-					"internalType": "string",
-					"name": "tipoPizza",
-					"type": "string"
-				}
-			],
-			"name": "acquista",
-			"outputs": [],
-			"stateMutability": "payable",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "Cartone",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
+    let abi = [
 		{
 			"inputs": [],
 			"stateMutability": "payable",
@@ -61,6 +42,13 @@ async function loadContract(){
 		{
 			"stateMutability": "payable",
 			"type": "fallback"
+		},
+		{
+			"inputs": [],
+			"name": "Cartone",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
 			"inputs": [
@@ -76,8 +64,17 @@ async function loadContract(){
 			"type": "function"
 		},
 		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "tipoPizza",
+					"type": "string"
+				}
+			],
+			"name": "acquista",
+			"outputs": [],
 			"stateMutability": "payable",
-			"type": "receive"
+			"type": "function"
 		},
 		{
 			"inputs": [
@@ -119,11 +116,17 @@ async function loadContract(){
 			],
 			"stateMutability": "view",
 			"type": "function"
+		},
+		{
+			"stateMutability": "payable",
+			"type": "receive"
 		}
 	]
-let contractAddress = "0xaf81D4efC34Ee3c22b68FB260C581E20756E7421"
+
+let contractAddress = "0xef14265345ccD8c40Fd17B876Bd25F4988420992"
     myContract = new web3.eth.Contract(abi, contractAddress);
     console.log(myContract);
+   
    
    
     
@@ -142,6 +145,23 @@ let contractAddress = "0xaf81D4efC34Ee3c22b68FB260C581E20756E7421"
 
     }
 
+
+   
+    
+  // Funzione per calcolare il prezzo totale della pizza
+//   function calcolaPrezzo(pizza, quantita) {
+//     const prezzoPizza = prezziPizze[pizza];
+//     const prezzoTotale = prezzoPizza * quantita;
+//     return prezzoTotale;
+//   }
+  
+//   // Esempio di utilizzo della funzione
+//   const pizzaScelta = 'margherita';
+//   const quantita = 2;
+//   const prezzoTotale = calcolaPrezzo(pizzaScelta, quantita);
+//   console.log(`Il prezzo totale per ${quantita} ${pizzaScelta} è ${prezzoTotale} euro.`);
+
+
     async function acquista(nome, value){
 		console.log(value)
        await myContract.methods.acquista(nome).send({
@@ -149,97 +169,124 @@ let contractAddress = "0xaf81D4efC34Ee3c22b68FB260C581E20756E7421"
             value: web3.utils.toWei(value, 'ether')
         }).then(function (response) {
             console.log("acquisto completato");
-	     	 changeImage(nome)
+	     	 changeImage()
     		
         });
 	}
 		
-    async function vendita(){
+    async function vendita(pizza){
        
-    myContract.methods.Vendita("capricciosa").send({
+    myContract.methods.Vendita(pizza).send({
         from:myAddress
     }).then(function (response) {
         console.log(response);
     });
 }
+
     async function cartone()    {
-        myContract.methods.cartone().send({
+        myContract.methods.Cartone().send({
 			from: myAddress
 		}).then(function (response) {
         console.log(response);
     })
 }
 
+// const margherita = [ 
+// 	'/img/New Piskel-4.png.png',
+// 	'/img/New Piskel-3.png.png',
+// 	'/img/New Piskel-2.png.png',
+// 	'/img/1.png'
+// ]; 
+// const capricciosa= [ 
+// 	'/img/capricciosavuota.png',
+// 	'/img/unafettacapricciosa.png',
+// 	'/img/duefettecapricciosa.png',
+// 	'/img/trefettecapricciosa.png',
+// 	'/img/capricciosa.png'
+// ]; 
+// const diavola = [ 
+// 	'/img/diavolavuota.png',
+// 	'/img/unafettadiavola.png',
+// 	'/img/duefettediavola.png',
+// 	'/img/trefettediavola.png',
+// 	'/img/diavola.png'
+// ]; 
+// const cipolla = [ 
+// 	'/img/New Piskel-4.png.png',
+// 	'/img/New Piskel-3.png.png',
+// 	'/img/New Piskel-2.png.png',
+// 	'/img/1.png'
+// ]; 
 
  
+// // Call changeImage() function on button click
+// function changeImage(nome){
+// 	//aumenta margherita
+// 	if (nome == 'margherita')
+// 	{
+	
+//     if(currentImgIdx >= margherita.length){
+//         currentImgIdx = 0;
+//     }
+//     img.margherita.src =  margherita[currentImgIdx];
+//     currentImgIdx++;
+// }
+// if (nome == 'diavola'){
+// 	//aumenta diavola
+//     if(currentImgIdx >= diavola.length){
+//         currentImgIdx = 0;
+
+//     }
+//     img.diavola.src =  diavola[currentImgIdx];
+//     currentImgIdx++;
+//     }
+
+// if (nome == 'cipolla')
+// {
+// 	//aumenta cipolla
+//     if(currentImgIdx >= cipolla.length){
+//         currentImgIdx = 0;
+//     }
+//     img.cipolla.src =  cipolla[currentImgIdx];
+//     currentImgIdx++;
+// }
+// if (nome == 'capricciosa')
+// {
+// 	//capricciosa
+	
+//     if(currentImgIdx >= capricciosa.length){
+//         currentImgIdx = 0;
+//         // If current idx exceeds images array
+//         // length, reset it to 0 again
+//     }
+//     img.capricciosa.src =  capricciosa[currentImgIdx];
+//     currentImgIdx++;
+//     }
+// }
+
 // Call changeImage() function on button click
-function changeImage(nome){
-	//aumenta margherita
-	const margherita = [ 
-		'/img/New Piskel-4.png.png',
-		'/img/New Piskel-3.png.png',
-		'/img/New Piskel-2.png.png',
-		'/img/1.png'
+function changeImage(){
+	const images = [ 
+		'/img/unafettacapricciosa-removebg-preview.png',
+		'/img/duefettecapricciosa-removebg-preview.png',
+		'/img/trefettecapricciosa-removebg-preview.png',
+		'public/img/capricciosa-removebg-preview.png'
 	]; 
-	const img = document.getElementById(nome);
-    if(currentImgIdx >= margherita.length){
+	const img = document.getElementById('diavola');
+    if(currentImgIdx >= images.length){
         currentImgIdx = 0;
         // If current idx exceeds images array
         // length, reset it to 0 again
-		img.src = margherita[currentImgIdx];
-    currentImgIdx++;
     }
-    img.src =  margherita[currentImgIdx];
+    img.src = images[currentImgIdx];
     currentImgIdx++;
-	//aumenta diavola
-	const diavola = [ 
-		'/img/New Piskel-4.png.png',
-		'/img/New Piskel-3.png.png',
-		'/img/New Piskel-2.png.png',
-		'/img/1.png'
-	]; 
-    if(currentImgIdx >= diavola.length){
-        currentImgIdx = 0;
-		img.src = diavola[currentImgIdx];
-    currentImgIdx++;
-    }
-    img.src =  diavola[currentImgIdx];
-    currentImgIdx++;
-
-	//aumenta cipolla
-	const cipolla = [ 
-		'/img/New Piskel-4.png.png',
-		'/img/New Piskel-3.png.png',
-		'/img/New Piskel-2.png.png',
-		'/img/1.png'
-	]; 
-    if(currentImgIdx >= cipolla.length){
-        currentImgIdx = 0;
-        // If current idx exceeds images array
-        // length, reset it to 0 again
-		img.src = cipolla[currentImgIdx];
-    currentImgIdx++;
-    }
-    img.src =  cipolla[currentImgIdx];
-    currentImgIdx++;
-  
-	const capricciosa= [ 
-		'/img/capricciosavuota.png',
-		'/img/unafettacapricciosa.png',
-		'/img/duefettecapricciosa.png',
-		'/img/trefettecapricciosa.png',
-		'/img/capricciosa.png'
-	]; 
-    if(currentImgIdx >= capricciosa.length){
-        currentImgIdx = 0;
-        // If current idx exceeds images array
-        // length, reset it to 0 again
-		img.src = capricciosa[currentImgIdx];
-    currentImgIdx++;
-    }
-    img.src =  capricciosa[currentImgIdx];
-    currentImgIdx++;
-
+    // Increment current image idx by 1
 }
+    
+  
+
+
+
+
 
 
